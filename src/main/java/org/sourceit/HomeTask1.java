@@ -12,17 +12,14 @@ public class HomeTask1 {
      * @param number
      * @return является ли число четным.
      */
-    public static boolean isEven(int number) throws IOException
+    public static boolean isEven(int number)
     {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        int x =Integer.parseInt(reader.readLine());
-
-        if((x%2)==0){
-            System.out.println("Число " +x +" четное");
+        if((number%2)==0){
+            System.out.println("Число " + number +" четное");
         }
-        else if((x%1)==0){
-            System.out.println("Число "+x+" нечетное");
+        else if((number%1)==0){
+            System.out.println("Число "+number+" нечетное");
         }
         return number %2 == 0;
     }
