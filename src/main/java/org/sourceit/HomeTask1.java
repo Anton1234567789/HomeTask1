@@ -1,5 +1,9 @@
 package org.sourceit;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class HomeTask1 {
 
     /**
@@ -8,8 +12,18 @@ public class HomeTask1 {
      * @param number
      * @return является ли число четным.
      */
-    public static boolean isEven(int number)
+    public static boolean isEven(int number) throws IOException
     {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        int x =Integer.parseInt(reader.readLine());
+
+        if((x%2)==0){
+            System.out.println("Число " +x +" четное");
+        }
+        else if((x%1)==0){
+            System.out.println("Число "+x+" нечетное");
+        }
         return number %2 == 0;
     }
 
@@ -22,8 +36,20 @@ public class HomeTask1 {
      * @param b должно быть больше 0.
      * @return значение гипотенузы.
      */
-    public static double findHypotenuse(double a, double b) {
-        return 0D;
+    public static double findHypotenuse(double a, double b)
+    {
+
+        double h =0;
+
+        h = Math.sqrt(a*a+b*b);
+        if (a<0) {
+            return 0;
+        }
+        if (b<0){
+            return 0;
+        }
+        return h;
+
     }
 
     /**
@@ -34,9 +60,13 @@ public class HomeTask1 {
      * @param c
      * @return периметр треугольника.
      */
-    public static double perimeter(double a, double b, double c) {
-        return 0D;
-    }
+    public static double perimeter(double a, double b, double c)
+    {
+        double p=0;
+        p = a + b + c;
+
+        return p;
+            }
 
     /**
      * Метод находит площадь треугольника.
@@ -47,7 +77,12 @@ public class HomeTask1 {
      * @return площадь треугольника.
      */
     public static double area(double a, double b) {
-        return 0D;
+
+        double area =0;
+
+        area = (1/2)*a*b;
+
+        return area;
     }
 
     /**
@@ -57,8 +92,11 @@ public class HomeTask1 {
      * @param max саксимальное значение.
      * @return сгенерированное число.
      */
-    public static int generateNumberFromRange(int min, int max) {
-        return 0;
+    public static int generateNumberFromRange(int min, int max)
+    {
+        int random = min + (int) (Math.random()*(max-min)+1);
+
+        return random;
     }
 
     /**
@@ -69,8 +107,15 @@ public class HomeTask1 {
      * @param number
      * @return сумма цифр.
      */
-    public static long calculateSum(long number) {
-        return 0L;
+    public static long calculateSum(long number)
+    {
+        long sum =0;
+
+        for (long i =number;i>0;i/=10){
+            sum+=i%10;
+        }
+        return sum;
+
     }
 
     /**
@@ -81,8 +126,20 @@ public class HomeTask1 {
      * @param till до какого элемента считать.
      * @return элемент последовательности.
      */
-    public static int fibonacci(int till) {
-        return 0;
+    public static int fibonacci(int till)
+    {
+        int a=1;
+        int b=1;
+        int fib=2;
+        int i =2;
+        while(i<till){
+            fib = a+b;
+            a=b;
+            b=fib;
+            i++;
+        }
+
+        return fib;
     }
 
     /**
@@ -93,7 +150,18 @@ public class HomeTask1 {
      * @param ticket должен быть от 1 до 999999
      * @return является ли билет счастливым.
      */
-    public static boolean isHappy(long ticket) {
-        return false;
+    public static boolean isHappy(long ticket)
+    {
+        int tick =0;
+
+        for(int i=1;i<1000000;i++){
+            int i1=i/100000%10, i2=i/10000%10,
+                    i3=i/1000%10,i4=i/100%10,
+                    i5=i/10%10,i6=i%10;
+            if((i1+i2+i3)==(i4+i5+i6)){
+                tick++;
+            }
+        }
+        return true;
     }
 }
