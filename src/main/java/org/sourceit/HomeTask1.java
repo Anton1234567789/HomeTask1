@@ -8,8 +8,9 @@ public class HomeTask1 {
      * @param number
      * @return является ли число четным.
      */
-    public static boolean isEven(int number) {
-        return false;
+    public static boolean isEven(int number)
+    {
+        return number %2 == 0;
     }
 
     /**
