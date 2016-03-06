@@ -41,12 +41,10 @@ public class HomeTask1 {
         double h =0;
 
         h = Math.sqrt(a*a+b*b);
-        if (a<0) {
+        if (a<0||b<0) {
             return 0;
         }
-        if (b<0){
-            return 0;
-        }
+
         return h;
 
     }
@@ -78,12 +76,9 @@ public class HomeTask1 {
     public static double area(double a, double b) {
 
         double area =0;
-        if(a<0){
-            return 0;
-        }
-        else if(b<0){
-            return 0;
-        }
+       if(a<0||b<0){
+           return 0;
+       }
         if(a>0&&b>0) {
             area = (1 / 2) * a * b;
             return area;
@@ -101,9 +96,8 @@ public class HomeTask1 {
      */
     public static int generateNumberFromRange(int min, int max)
     {
-        
-        int random = min + (int) (Math.random()*(max-min)+1);
-
+        max-=min;
+        int random = (int) (Math.random()*(max)+min);
 
         return random;
     }
@@ -120,17 +114,7 @@ public class HomeTask1 {
     {
         long sum =0;
 
-        /*if (number>0){
-        for (long i =number;i>0;i/=10){
-            sum+=i%10;
-            i=i/10;
-        }
-        }*/
-        /*else if (number<0){
-            for (long j =number;j<0;j/=10){
-                sum+=j%10;
-            }
-        }*/
+
         if(number>0){
             while(number>0){
                 sum+=number%10;
@@ -171,10 +155,6 @@ public class HomeTask1 {
             i++;
         }
         if(till<0){
-            /*fib=a+b;
-            a=b;
-            b=fib;
-            i++;*/
         return 1;
         }
         return fib;
