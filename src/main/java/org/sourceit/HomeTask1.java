@@ -3,6 +3,8 @@ package org.sourceit;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomeTask1 {
 
@@ -76,8 +78,16 @@ public class HomeTask1 {
     public static double area(double a, double b) {
 
         double area =0;
-
-        area = (1/2)*a*b;
+        if(a<0){
+            return 0;
+        }
+        else if(b<0){
+            return 0;
+        }
+        if(a>0&&b>0) {
+            area = (1 / 2) * a * b;
+            return area;
+        }
 
         return area;
     }
@@ -91,7 +101,9 @@ public class HomeTask1 {
      */
     public static int generateNumberFromRange(int min, int max)
     {
+        
         int random = min + (int) (Math.random()*(max-min)+1);
+
 
         return random;
     }
@@ -108,10 +120,31 @@ public class HomeTask1 {
     {
         long sum =0;
 
+        /*if (number>0){
         for (long i =number;i>0;i/=10){
             sum+=i%10;
+            i=i/10;
         }
-        return sum;
+        }*/
+        /*else if (number<0){
+            for (long j =number;j<0;j/=10){
+                sum+=j%10;
+            }
+        }*/
+        if(number>0){
+            while(number>0){
+                sum+=number%10;
+                number=number/10;
+            }
+        }
+        else if(number<0){
+            while(number<0){
+                sum+=number%10;
+                number=number/10;
+            }
+        }
+
+        return Math.abs(sum);
 
     }
 
@@ -125,19 +158,27 @@ public class HomeTask1 {
      */
     public static int fibonacci(int till)
     {
+
         int a=1;
         int b=1;
-        int fib=2;
+        int fib=0;
         int i =2;
-        while(i<till){
+
+        while(i<=till){
             fib = a+b;
             a=b;
             b=fib;
             i++;
         }
-
+        if(till<0){
+            /*fib=a+b;
+            a=b;
+            b=fib;
+            i++;*/
+        return 1;
+        }
         return fib;
-    }
+            }
 
     /**
      * "Счастливым" считается билетик у которого
@@ -158,6 +199,9 @@ public class HomeTask1 {
             if((i1+i2+i3)==(i4+i5+i6)){
                 tick++;
             }
+        }
+        if(ticket<0){
+            return false;
         }
         return true;
     }
