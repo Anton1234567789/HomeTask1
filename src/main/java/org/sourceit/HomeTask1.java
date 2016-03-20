@@ -17,12 +17,7 @@ public class HomeTask1 {
     public static boolean isEven(int number)
     {
 
-        if((number%2)==0){
-            System.out.println("Число " + number +" четное");
-        }
-        else if((number%1)==0){
-            System.out.println("Число "+number+" нечетное");
-        }
+
         return number %2 == 0;
     }
 
@@ -37,14 +32,11 @@ public class HomeTask1 {
      */
     public static double findHypotenuse(double a, double b)
     {
-
-        double h =0;
-
-        h = Math.sqrt(a*a+b*b);
         if (a<0||b<0) {
             return 0;
         }
-
+        double h =0;
+        h = Math.sqrt(a*a+b*b);
         return h;
 
     }
@@ -79,10 +71,9 @@ public class HomeTask1 {
        if(a<0||b<0){
            return 0;
        }
-        if(a>0&&b>0) {
+
             area = (1 / 2) * a * b;
-            return area;
-        }
+
 
         return area;
     }
@@ -119,9 +110,9 @@ public class HomeTask1 {
             while(number>0){
                 sum+=number%10;
                 number=number/10;
-            }
-        }
+            }        }
         else if(number<0){
+
             while(number<0){
                 sum+=number%10;
                 number=number/10;
@@ -142,20 +133,18 @@ public class HomeTask1 {
      */
     public static int fibonacci(int till)
     {
-
+        if(till<0){
+            return 1;
+        }
         int a=1;
         int b=1;
         int fib=0;
         int i =2;
-
         while(i<=till){
             fib = a+b;
             a=b;
             b=fib;
             i++;
-        }
-        if(till<0){
-        return 1;
         }
         return fib;
             }
@@ -171,7 +160,6 @@ public class HomeTask1 {
     public static boolean isHappy(long ticket)
     {
         int tick =0;
-
         for(int i=1;i<1000000;i++){
             int i1=i/100000%10, i2=i/10000%10,
                     i3=i/1000%10,i4=i/100%10,
