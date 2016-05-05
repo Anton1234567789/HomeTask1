@@ -16,8 +16,6 @@ public class HomeTask1 {
      */
     public static boolean isEven(int number)
     {
-
-
         return number %2 == 0;
     }
 
@@ -71,9 +69,7 @@ public class HomeTask1 {
        if(a<0||b<0){
            return 0;
        }
-
             area = (1 / 2) * a * b;
-
 
         return area;
     }
@@ -159,18 +155,13 @@ public class HomeTask1 {
      */
     public static boolean isHappy(long ticket)
     {
-        int tick =0;
-        for(int i=1;i<1000000;i++){
-            int i1=i/100000%10, i2=i/10000%10,
-                    i3=i/1000%10,i4=i/100%10,
-                    i5=i/10%10,i6=i%10;
-            if((i1+i2+i3)==(i4+i5+i6)){
-                tick++;
-            }
+        long num = ticket/100;
+        long num1 = ticket%100;
+        long happy = calculateSum(num);
+        long happy1 = calculateSum(num1);
+        if (happy==happy1){
+            return true;
         }
-        if(ticket<0){
-            return false;
-        }
-        return true;
+        return false;
     }
 }
